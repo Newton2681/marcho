@@ -30,6 +30,7 @@ function scripts() {
     /* 'node_modules/swiper/swiper-bundle.js', */
     /* подключение плагина слайдера */
     'node_modules/jquery/dist/jquery.js',
+    'node_modules/slick-carousel/slick/slick.js',
     'app/js/main.js',
 
     /* 'app/js/*.js',
@@ -43,7 +44,7 @@ function scripts() {
 }
 
 function images() {
-  return src('app/images/*.*')
+  return src('app/images/**/*.*')
     .pipe(
       imagemin([
         imagemin.gifsicle({
@@ -73,8 +74,8 @@ function images() {
 
 
 function watching() {
-  watch(['app/scss/*.scss'], styles);
-  watch(['app/js/*.js', '!app/js/main.min.js'], scripts);
+  watch(['app/scss/**/*.scss'], styles);
+  watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
   watch(['app/**/*.html']).on('change', browserSync.reload);
 }
 
